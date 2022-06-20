@@ -28,17 +28,17 @@ public class PeopleController {
         return ResponseEntity.status(HttpStatus.OK).body(peopleService.findById(id));
     }
 
-    @PostMapping
+    @PostMapping("people")
     public ResponseEntity<People> create(@RequestBody People people){
         return ResponseEntity.status(HttpStatus.CREATED).body(peopleService.save(people));
     }
 
-    @PutMapping
+    @PutMapping("people/{id}")
     public ResponseEntity<People> update(@RequestBody People people){
         return ResponseEntity.status(HttpStatus.OK).body(peopleService.update(people));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("people/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id){
         peopleService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).build();

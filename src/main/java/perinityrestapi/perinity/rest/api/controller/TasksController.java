@@ -28,12 +28,12 @@ public class TasksController {
         return ResponseEntity.status(HttpStatus.OK).body(tasksService.findById(id));
     }
 
-    @PostMapping
+    @PostMapping("tasks")
     public ResponseEntity<Tasks> create(@RequestBody Tasks tasks){
         return ResponseEntity.status(HttpStatus.CREATED).body(tasksService.save(tasks));
     }
 
-    @PutMapping
+    @PutMapping("tasks/allocate/{id}")
     public ResponseEntity<Tasks> update(@RequestBody Tasks tasks){
         return ResponseEntity.status(HttpStatus.OK).body(tasksService.update(tasks));
     }
